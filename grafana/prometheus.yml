@@ -26,23 +26,11 @@ scrape_configs:
     static_configs:
     - targets: ['192.168.110.135:9100']
 
-  - job_name: office
+  - job_name: host
     static_configs:
-    - targets: ["10.160.110.6:9182"]
-
-  - job_name: apmproxy
-    static_configs:
-    - targets: ['10.160.255.171:9100']
+    - targets: ["localhost:9090"]
   
-  - job_name: apmdb
+  - job_name: zenbook
     static_configs:
-    - targets: ['10.160.255.170:9100']
-
-  - job_name: vmcmprod01
-    static_configs:
-    - targets: ['10.160.200.110:9100']
-
-
-
-
+      - targets: ['192.168.1.245:9182']
 

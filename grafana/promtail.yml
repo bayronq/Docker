@@ -17,29 +17,20 @@ scrape_configs:
           job: varlogs
           __path__: /var/log/*log
 
-    # FF8
-  - job_name: FF8
-    static_configs:
-      - targets:
-          - localhost
-        labels:
-          job: FF8
-          __path__: /loghist/FF8/**/*log
+
+            #  - job_name: wasprod01
+            # static_configs:
+            #- targets:
+            #- localhost
+            #labels:
+            #job: wasprod01
+            #__path__: /wasprod01/**/*log
 
 
-  - job_name: wasprod01
-    static_configs:
-      - targets:
-          - localhost
-        labels:
-          job: wasprod01
-          __path__: /wasprod01/**/*log
-
-
-  - job_name: wasprod03
-    static_configs:
-      - targets:
-          - localhost
-        labels:
-          job: wasprod03
-          __path__: /wasprod03/**/*log
+            #  - job_name: wasprod03
+            #    static_configs:
+            #      - targets:
+            #          - localhost
+            #        labels:
+            #          job: wasprod03
+            #          __path__: /wasprod03/**/*log

@@ -9,7 +9,7 @@ volumes:
   loki-data:
   promtail-data:
   logs-data:
-  prometheus_data: {}
+  prometheus-data:
 
 services:
   grafana:
@@ -38,14 +38,14 @@ services:
     container_name: promtail
     restart: unless-stopped 
     volumes:
-      - /var/log/:/var/log/:ro
       - ./promtail.yml:/etc/promtail/promtail.yml
       - promtail-data:/tmp
-      - /loghist/:/loghist
-      - /logGyssa/:/logGyssa
-      - /mnt/wasprod01/:/wasprod01/:ro
+      - /var/log:/var/log
+      #- /loghist/:/loghist
+      #- /logGyssa/:/logGyssa
+      #- /mnt/wasprod01/:/wasprod01/:ro
       #- /mnt/wasprod02/:/wasprod02/:ro
-      - /mnt/wasprod03/:/wasprod03/:ro
+      #- /mnt/wasprod03/:/wasprod03/:ro
     command: -config.file=/etc/promtail/promtail.yml
 
   prometheus:
@@ -55,9 +55,8 @@ services:
     ports:
       - 9090:9090
     volumes:
-      - ./prometheus:/etc/prometheus
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
-      - prometheus_data:/prometheus
+      - prometheus-data:/prometheus
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
       - '--storage.tsdb.path=/prometheus'
@@ -66,8 +65,8 @@ services:
       - '--web.enable-lifecycle'
     expose:
       - 9090
-    networks:
-      - monitoring
+        #networks:
+        #- monitoring
 
 
 
