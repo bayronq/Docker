@@ -1,0 +1,45 @@
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+
+positions:
+  filename: /tmp/positions.yml
+
+clients:
+  - url: http://loki:3100/loki/api/v1/push
+
+scrape_configs:
+  - job_name: system
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: varlogs
+          __path__: /var/log/*log
+
+    # FF8
+  - job_name: FF8
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: FF8
+          __path__: /loghist/FF8/**/*log
+
+
+  - job_name: wasprod01
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: wasprod01
+          __path__: /wasprod01/**/*log
+
+
+  - job_name: wasprod03
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: wasprod03
+          __path__: /wasprod03/**/*log
