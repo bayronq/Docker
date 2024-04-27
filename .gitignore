@@ -1,4 +1,4 @@
-./docker-nodejs/node_modules	
-./stirling-pdf/logs
-./stirling-pdf/trainingData
+docker-nodejs/node_modules	
+stirling-pdf/logs
+stirling-pdf/trainingData
 
