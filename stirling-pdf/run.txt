@@ -1,0 +1,10 @@
+docker run -d \
+  -p 8082:8080 \
+  -v ./trainingData:/usr/share/tessdata \
+  -v /./extraConfigs:/configs \
+  -v ./logs:/logs \
+  -e DOCKER_ENABLE_SECURITY=false \
+  -e INSTALL_BOOK_AND_ADVANCED_HTML_OPS=false \
+  -e LANGS=es_ES \
+  --name stirling-pdf \
+  frooodle/s-pdf:latest
