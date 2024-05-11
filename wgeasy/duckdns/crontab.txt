@@ -1,0 +1,1 @@
+*/5 * * * * ~/Repo/Docker/wgeasy/duckdns/duck.sh >/dev/null 2>&1
