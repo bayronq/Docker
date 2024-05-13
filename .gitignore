@@ -1,4 +1,5 @@
 docker-nodejs/node_modules	
 stirling-pdf/logs
 stirling-pdf/trainingData
+.DS_Store
 
