@@ -11,6 +11,7 @@ services:
             - APP_KEY=base64:FpH/NI+LRuhwbGxG4bBB8KddOWuitpLv7+SnqfFQGAI=
             - APP_URL=http://localhost
             - DB_CONNECTION=sqlite
+            - APP_TIMEZONE=America/Guatemala
         volumes:
             - /volumes/speedtest-data:/config
             - /volumes/speedtest-data/to-custom-ssl-keys:/config/keys
