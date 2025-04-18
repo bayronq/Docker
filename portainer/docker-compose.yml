@@ -2,7 +2,7 @@ services:
     portainer-ce:
         image: 'portainer/portainer-ce:latest'
         volumes:
-            - '/volumes/portainer-data:/data'
+            - '/work/volumes/portainer-data:/data'
             - '/var/run/docker.sock:/var/run/docker.sock'
         restart: always
         container_name: portainer
