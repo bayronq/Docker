@@ -1,12 +1,21 @@
+volumes:
+  sqlserver-data:
+
 services:
-    mc:
-        command: 'r.microsoft.com/mssql/server:2019-latest'
-        image: mc
+    mssql:
+        image: 'mcr.microsoft.com/mssql/server:2022-latest'
+        restart: unless-stopped
         container_name: sqlserver
         ports:
             - '1433:1433'
+        user: 0:0
+        volumes:
+            - /work/volumes/sqlserver-data/data:/var/opt/mssql/data
+            - /work/volumes/sqlserver-data/log:/var/opt/mssql/log
+            - /work/volumes/sqlserver-data/secrets:/var/opt/mssql/secrets
         environment:
             - MSSQL_PID=Express
             - MSSQL_SA_PASSWORD=Admin01.
             - ACCEPT_EULA=Y
+
 
