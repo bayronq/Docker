@@ -13,7 +13,7 @@ services:
     restart: always
     command: --transaction-isolation=READ-COMMITTED --log-bin=binlog --binlog-format=ROW
     volumes:
-      - /volumes/db-data:/var/lib/mysql
+      - /work/volumes/db-data:/var/lib/mysql
     networks:
       - nextcloud_network
     ports:
@@ -31,7 +31,7 @@ services:
     ports:
       - "6379:6379"
     volumes:
-      - /volumes/redis-data:/data 
+      - /work/volumes/redis-data:/data 
     networks:
       - nextcloud_network
 
@@ -39,7 +39,7 @@ services:
     image: nextcloud
     restart: always
     ports:
-      - 8080:80
+      - 80:80
     depends_on:
       - db
       - redis
@@ -51,6 +51,6 @@ services:
       - REDIS_HOST=redis 
       - REDIS_PORT=6379
     volumes:
-      - /volumes/nextcloud-data:/var/www/html 
+      - /work/volumes/nextcloud-data:/var/www/html 
     networks:
       - nextcloud_network
